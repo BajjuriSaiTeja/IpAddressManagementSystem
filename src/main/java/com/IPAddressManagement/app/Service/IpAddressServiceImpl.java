@@ -23,6 +23,7 @@ public class IpAddressServiceImpl implements IPAddressService {
     @Override
     public boolean generateIps(String CIDR) {
         SubnetUtils utils = new SubnetUtils(CIDR);
+        utils.setInclusiveHostCount(true);
         Arrays.asList(utils.getInfo().getAllAddresses()).forEach( ip -> {
             IPModel ipModel = new IPModel(ip, false);
             ipRepository.save(ipModel);

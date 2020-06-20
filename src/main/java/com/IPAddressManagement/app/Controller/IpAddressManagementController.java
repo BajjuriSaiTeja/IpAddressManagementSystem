@@ -22,7 +22,7 @@ public class IpAddressManagementController {
     }
 
     @PostMapping("generateIp")
-    public ResponseEntity saveTicket(@RequestParam String CIDR) {
+    public ResponseEntity generateIps(@RequestParam String CIDR) {
         ipAddressService.generateIps(CIDR);
         return new ResponseEntity<String>("Generated Ips", HttpStatus.OK);
     }
